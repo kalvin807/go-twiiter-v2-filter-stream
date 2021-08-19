@@ -11,14 +11,15 @@ import (
 	"github.com/kalvin807/twitter-v2-stream/internal/stream"
 )
 
+// Use the stream
 func HandleChan(messages <-chan *stream.StreamData) {
 	for message := range messages {
 		fmt.Println(message.Tweet.ID)
 	}
 }
 
+// Demo
 func main() {
-	println("Hello, World!")
 	token := os.Getenv("TWITTER_TOKEN")
 	client := http.DefaultClient
 	v2Service := stream.NewStreamService(client, token)
